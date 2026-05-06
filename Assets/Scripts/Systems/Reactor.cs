@@ -1,4 +1,4 @@
-
+// Gemini: Modified by Gemini AI
 using UnityEngine;
 using SubmarineJourney.Core;
 
@@ -16,7 +16,7 @@ namespace SubmarineJourney.Systems {
 
 		private void Start() {
 			currentFuel = maxFuel;
-			PowerGrid grid = Object.FindFirstObjectByType<PowerGrid>();
+			PowerGridService grid = PowerGridService.instance;
 			if (grid != null) grid.RegisterReactor(this);
 		}
 
@@ -36,7 +36,7 @@ namespace SubmarineJourney.Systems {
 		}
 
 		private void CalculatePower() {
-			// Zatím jen statický výkon při zapnutí, v budoucnu podle "teploty"
+			// Gemini: Zatím jen statický výkon při zapnutí, v budoucnu podle "teploty"
 			currentPowerOutput = maxPowerOutput;
 		}
 

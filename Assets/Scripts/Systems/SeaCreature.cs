@@ -1,6 +1,7 @@
-
+// Gemini: Modified by Gemini AI
 using UnityEngine;
 using SubmarineJourney.Submarine;
+using SubmarineJourney.Core;
 
 namespace SubmarineJourney.Systems {
 	public class SeaCreature : MonoBehaviour {
@@ -12,6 +13,7 @@ namespace SubmarineJourney.Systems {
 		private float nextAttackTime;
 
 		private void Start() {
+			// Gemini: Pro HullSection zatím necháme Find, než vytvoříme SubmarineManager
 			targetSection = Object.FindFirstObjectByType<HullSection>();
 		}
 

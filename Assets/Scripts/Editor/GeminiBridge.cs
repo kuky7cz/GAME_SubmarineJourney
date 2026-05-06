@@ -12,8 +12,8 @@ namespace SubmarineJourney.Editor {
             Debug.Log("[GeminiBridge] Starting scene wiring...");
 
             // 1. Setup Core Systems
-            SetupSystem<PowerGrid>("Systems/PowerGrid");
-            SetupSystem<HUDManager>("UI/HUD");
+            SetupSystem<PowerGridService>("Systems/PowerGrid");
+            SetupSystem<HUDService>("UI/HUD");
             
             // 2. Setup Player
             SetupPlayer();

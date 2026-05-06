@@ -348,6 +348,53 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &624030384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624030385}
+  - component: {fileID: 624030386}
+  m_Layer: 0
+  m_Name: SceneReferencesService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624030385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624030384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.69972, y: -1.70666, z: -5.91879}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624030386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624030384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f610d92c463c5c4686c49032832ef32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubmarineJourney.Core.DI.SceneReferencesSevice
+  submarine: {fileID: 8467920972418559227}
+  submarinePrefab: {fileID: 8338429786160384606, guid: f0fef0ed5bb08f74eb3a1140b43b3926, type: 3}
+  world: {fileID: 6365213217975095060}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +585,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b581eb8935c49f2489baa2f32a27b6ad, type: 3}
+--- !u!1 &6365213217975095060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1640901730229112373, guid: b581eb8935c49f2489baa2f32a27b6ad, type: 3}
+  m_PrefabInstance: {fileID: 6365213217975095059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6369918774684002399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,10 +744,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0fef0ed5bb08f74eb3a1140b43b3926, type: 3}
+--- !u!114 &8467920972418559227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8338429786160384606, guid: f0fef0ed5bb08f74eb3a1140b43b3926, type: 3}
+  m_PrefabInstance: {fileID: 8467920972418559226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee88b62e87f21134cb9f6f038aacd012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubmarinePrefab
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 624030385}
   - {fileID: 410087041}
   - {fileID: 8467920972418559226}
   - {fileID: 6365213217975095059}

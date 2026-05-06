@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using SubmarineJourney.Systems;
 
@@ -41,7 +40,6 @@ namespace SubmarineJourney.Submarine {
 		private void HandleWaterFlow() {
 			if (neighborSection == null || connectingDoor == null || !connectingDoor.IsOpen()) return;
 
-			// Voda teče z vyšší hladiny do nižší
 			float difference = waterLevel - neighborSection.GetWaterLevel();
 			if (difference > 0.01f) {
 				float flow = difference * flowRate * Time.deltaTime;
@@ -51,8 +49,6 @@ namespace SubmarineJourney.Submarine {
 		}
 
 		private void HandleOxygenDecay() {
-			// Přirozený úbytek kyslíku (simulace spotřeby posádkou)
-			// V budoucnu může záviset na počtu entit v místnosti
 			oxygenLevel -= oxygenConsumptionRate * Time.deltaTime;
 			if (oxygenLevel < 0) oxygenLevel = 0;
 		}

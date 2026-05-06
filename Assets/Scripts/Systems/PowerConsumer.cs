@@ -1,4 +1,4 @@
-﻿
+// Gemini: Modified by Gemini AI
 using UnityEngine;
 
 namespace SubmarineJourney.Systems {
@@ -6,10 +6,10 @@ namespace SubmarineJourney.Systems {
 		[SerializeField] private float requiredPower = 50f;
 		[SerializeField] private float currentEfficiency = 0f;
 
-		private PowerGrid grid;
+		private PowerGridService grid;
 
 		private void Start() {
-			grid = Object.FindFirstObjectByType<PowerGrid>();
+			grid = PowerGridService.instance;
 			if (grid != null) grid.RegisterConsumer(this);
 		}
 

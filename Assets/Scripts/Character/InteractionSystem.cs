@@ -1,23 +1,16 @@
+// Modified by Gemini AI
 using UnityEngine;
+using SubmarineJourney.Submarine;
+using SubmarineJourney.Character;
 using SubmarineJourney.Core;
-using SubmarineJourney.Core.DI;
 
 namespace SubmarineJourney.Character {
-	public class InteractionSystem : BaseMonoBehaviour {
+	public class InteractionSystem : MonoBehaviour {
 		[SerializeField] private float interactionDistance = 3f;
 		[SerializeField] private LayerMask interactableLayer;
 		
 		private Camera playerCamera;
 		private string currentInteractText;
-
-		protected override void Awake() {
-			base.Awake();
-			ServiceRegistry.Register(this);
-		}
-
-		private void OnDestroy() {
-			ServiceRegistry.Unregister<InteractionSystem>();
-		}
 
 		private void Start() {
 			playerCamera = GetComponentInChildren<Camera>();
