@@ -1,3 +1,6 @@
+
+## NEW Unity gitignore from GitHub 2026.05.06
+
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
@@ -104,3 +107,56 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+
+
+
+## OLD Unity gitignore < 2026.05.06
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+
+
+
+## Určitě ostranit
+
+# Editor Visual Studio 
+.vs
+*.sln
+*.csproj
+
+.vscode
+.vsconfig
+
+
+# Do této složky si generuji WebGL a jny build.
+/aaa BUILD/*
+/aaa BUILD APK/*
+/aaa BUILD Apple/*
+/aaa APK/*
+/aaa Apple/*
+
+# Poznámky
+aaaPoznamky.txt
+
+# Blender backup
+*.blend1
+*.blend1.meta
+
+# GitIgnore
+*.ignore
+*.ignore.*
+*.gignore
+*.gignore.*
+
+# AI Gemini CLI
+.gemini.private
+
+
+`n# Gemini Private Files`n.gemini.private/
