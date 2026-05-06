@@ -156,7 +156,11 @@ aaaPoznamky.txt
 *.gignore.*
 
 # AI Gemini CLI
+## OLD
 .gemini.private
+## actual new
+.gemini.gitignore
+.gemini.gitignore/
 
 
-`n# Gemini Private Files`n.gemini.private/
+
