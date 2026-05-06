@@ -1,15 +1,26 @@
-
 using UnityEngine;
+using SubmarineJourney.Core;
+using SubmarineJourney.Core.DI;
 using SubmarineJourney.Submarine;
+using SubmarineJourney.Systems;
 
 namespace SubmarineJourney.Character {
-	public class CharacterHealth : MonoBehaviour {
+	public class CharacterHealth : BaseMonoBehaviour {
 		[SerializeField] private float maxHealth = 100f;
 		[SerializeField] private float currentHealth;
 		[SerializeField] private float suffocationDamage = 5f;
 		[SerializeField] private LayerMask hullLayer;
 		
 		private HullSection currentSection;
+
+		protected override void Awake() {
+			base.Awake();
+			ServiceRegistry.Register(this);
+		}
+
+		private void OnDestroy() {
+			ServiceRegistry.Unregister<CharacterHealth>();
+		}
 
 		private void Start() {
 			currentHealth = maxHealth;

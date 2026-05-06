@@ -1,22 +1,27 @@
-
 using UnityEngine;
 using TMPro;
 using SubmarineJourney.Character;
 using SubmarineJourney.Submarine;
+using SubmarineJourney.Systems;
+using SubmarineJourney.Core.DI;
 
 namespace SubmarineJourney.Core {
-	public class HUDManager : MonoBehaviour {
+	public class HUDManager : BaseMonoBehaviour {
 		[Header("UI References")]
 		[SerializeField] private TextMeshProUGUI interactText;
 		[SerializeField] private TextMeshProUGUI oxygenText;
 		[SerializeField] private TextMeshProUGUI healthText;
 
-		private InteractionSystem playerInteraction;
-		private CharacterHealth playerHealth;
+		[Inject] private InteractionSystem playerInteraction;
+		[Inject] private CharacterHealth playerHealth;
 
-		private void Start() {
-			playerInteraction = Object.FindFirstObjectByType<InteractionSystem>();
-			playerHealth = Object.FindFirstObjectByType<CharacterHealth>();
+		protected override void Awake() {
+			base.Awake();
+			ServiceRegistry.Register(this);
+		}
+
+		private void OnDestroy() {
+			ServiceRegistry.Unregister<HUDManager>();
 		}
 
 		private void Update() {
