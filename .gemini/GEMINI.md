@@ -9,6 +9,7 @@
 - **Vzory:** Komponentově orientovaný, interakce přes rozhraní (`IInteractable`).
 
 ## Standardy kódování
+- **Odsazování:** Vždy používat skutečné tabulátory (`\t`), nikdy mezery.
 - **Jmenné prostory:** Vždy používat `SubmarineJourney.<Modul>`.
 - **Konvence pojmenovávání:**
   - Třídy/Metody: `PascalCase`

@@ -2,9 +2,14 @@
 Zde se sleduje aktuální stav projektu, implementované moduly a seznam úkolů (Pending Tasks).
 
 ## Aktuální stav
-- Jádro DI implementováno.
-- Základní systémy (PowerGrid, HUD) napojeny na DI.
+- Architektura používá **Singleton Services** (přístup přes `instance`).
+- DI systém a `BaseMonoBehaviour` kompletně odstraněny.
+- Klíčové služby: `GameStateService`, `PowerGridService`, `HUDService`.
+- `CharacterHealth` také funguje jako Singleton.
+- `HullSection` a `SeaCreature` jsou běžné MonoBehaviour komponenty.
 
 ## TODO
-- [ ] Refaktorovat SeaCreature na DI.
-- [ ] Implementovat registrační soubor pro proměnné.
+- [ ] Propojit `HullSection.TakeDamage` s `GameStateService.instance.TotalSubmarineIntegrity`.
+- [ ] Implementovat logiku pro spotřebu paliva v `Reactor.cs` (odečítat z `GameStateService.instance.FuelLevel`).
+- [ ] Upravit `HUDService`, aby zobrazoval hloubku a palivo z `GameStateService`.
+- [ ] Vytvořit `SubmarineManager` pro globální správu všech sekcí trupu.
