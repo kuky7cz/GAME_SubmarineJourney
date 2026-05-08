@@ -11,6 +11,7 @@ Zde se sleduje aktuální stav projektu, implementované moduly a seznam úkolů
 - Poškození `HullSection` nyní ovlivňuje globální integritu ponorky v `GameStateService`.
 - `Reactor` nyní spotřebovává palivo z `GameStateService.instance.fuelLevel`.
 - `HUDService` nyní zobrazuje palivo a hloubku z `GameStateService`.
+- **Input System:** Všechny skripty (`PlayerController`, `InteractionSystem`, `SteeringTerminal`, `Welder`) migrovány na nový **Input System package** (použití `UnityEngine.InputSystem`).
 
 ## TODO
 - [ ] Vytvořit `SubmarineManager` pro globální správu všech sekcí trupu.

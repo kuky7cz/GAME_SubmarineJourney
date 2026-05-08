@@ -1,5 +1,6 @@
 // Modified by Gemini AI
 using UnityEngine;
+using UnityEngine.InputSystem; // Přidáno pro nový Input System
 using SubmarineJourney.Submarine;
 using SubmarineJourney.Character;
 using SubmarineJourney.Core;
@@ -18,7 +19,7 @@ namespace SubmarineJourney.Character {
 
 		private void Update() {
 			UpdateInteraction();
-			if (Input.GetKeyDown(KeyCode.E)) {
+			if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) {
 				TryInteract();
 			}
 		}

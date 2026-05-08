@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.InputSystem; // Přidáno pro nový Input System
 using SubmarineJourney.Submarine;
 
 namespace SubmarineJourney.Character {
@@ -15,7 +16,7 @@ namespace SubmarineJourney.Character {
 		}
 
 		private void Update() {
-			if (Input.GetMouseButton(0)) {
+			if (Mouse.current != null && Mouse.current.leftButton.isPressed) {
 				TryRepair();
 			}
 		}
