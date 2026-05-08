@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce149b78bf896ea47ab13bb8f3af800c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubmarineJourney.Character.PlayerController
-  walkSpeed: 5
-  mouseSensitivity: 2
+  walkSpeed: 4
+  mouseSensitivity: 1
   jumpForce: 5
   gravity: -9.81
 --- !u!136 &1129874653221350513
