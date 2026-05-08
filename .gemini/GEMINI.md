@@ -25,3 +25,4 @@
 ## Pracovní postupy
 - Po významných změnách vždy aktualizovat `MEMORY.md`.
 - Zajistit, aby nové systémy braly v úvahu napájení (dědit z `PowerConsumer` nebo ho používat).
+- Commit zprávy psát česky ve formátu: `Gemini: <stručný popis změny>`.
