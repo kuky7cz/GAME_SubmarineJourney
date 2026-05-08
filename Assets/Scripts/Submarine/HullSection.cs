@@ -1,5 +1,7 @@
+// Modified by Gemini AI
 using UnityEngine;
 using SubmarineJourney.Systems;
+using SubmarineJourney.Core; // Gemini: Přidáno pro přístup ke GameStateService
 
 namespace SubmarineJourney.Submarine {
 	public class HullSection : MonoBehaviour {
@@ -55,6 +57,15 @@ namespace SubmarineJourney.Submarine {
 
 		public void TakeDamage(float aDamage) {
 			currentHealth -= aDamage;
+			// Gemini: Snížení globální integrity ponorky o poškození této sekce.
+			if (GameStateService.instance != null) {
+				GameStateService.instance.totalSubmarineIntegrity -= aDamage;
+				// Gemini: Zajistíme, aby integrita neklesla pod nulu.
+				if (GameStateService.instance.totalSubmarineIntegrity < 0) {
+					GameStateService.instance.totalSubmarineIntegrity = 0;
+				}
+			}
+
 			if (currentHealth <= 0) {
 				currentHealth = 0;
 				isBroken = true;

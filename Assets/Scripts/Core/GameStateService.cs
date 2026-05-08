@@ -9,7 +9,8 @@ namespace SubmarineJourney.Core {
 		public float submarineDepth = 0f;
 		public float totalSubmarineIntegrity = 100f;
 		public float globalOxygenLevel = 1f;
-		public float fuelLevel = 100f;
+		public float fuelLevel = 100f; // Původně maxFuel v Reaktor, nyní globální
+		public float maxFuel = 1000f; // Globální maximální kapacita paliva
 
 		[Header("Game Progress")]
 		public bool isGamePaused = false;

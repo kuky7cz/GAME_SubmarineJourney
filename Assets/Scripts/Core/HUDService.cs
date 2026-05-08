@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using SubmarineJourney.Character;
+using SubmarineJourney.Core; // Přidáno pro přístup ke GameStateService
 
 namespace SubmarineJourney.Core {
 	public class HUDService : MonoBehaviour {
@@ -11,6 +12,10 @@ namespace SubmarineJourney.Core {
 		[SerializeField] private TextMeshProUGUI interactText;
 		[SerializeField] private TextMeshProUGUI oxygenText;
 		[SerializeField] private TextMeshProUGUI healthText;
+		// Gemini: Předpokládám existenci těchto UI prvků pro zobrazení paliva a hloubky.
+		[SerializeField] private TextMeshProUGUI fuelText;
+		[SerializeField] private TextMeshProUGUI depthText;
+
 
 		private InteractionSystem playerInteraction;
 		private CharacterHealth playerHealth;
@@ -42,6 +47,17 @@ namespace SubmarineJourney.Core {
 
 				if (healthText != null) {
 					healthText.text = $"Health: {playerHealth.GetCurrentHealth():F0}";
+				}
+			}
+
+			// Gemini: Aktualizace zobrazení paliva a hloubky
+			if (GameStateService.instance != null) {
+				if (fuelText != null) {
+					fuelText.text = $"Fuel: {(GameStateService.instance.fuelLevel):F0} / {GameStateService.instance.maxFuel:F0}";
+				}
+
+				if (depthText != null) {
+					depthText.text = $"Depth: {GameStateService.instance.submarineDepth:F0} m";
 				}
 			}
 		}

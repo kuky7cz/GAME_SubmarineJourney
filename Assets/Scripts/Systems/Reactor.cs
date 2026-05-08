@@ -6,33 +6,39 @@ namespace SubmarineJourney.Systems {
 	public class Reactor : MonoBehaviour, IInteractable {
 		[Header("Reactor Settings")]
 		[SerializeField] private float maxPowerOutput = 1000f;
-		[SerializeField] private float fuelConsumptionRate = 1f;
-		[SerializeField] private float maxFuel = 1000f;
+		[SerializeField] private float fuelConsumptionRate = 1f; // Měrná jednotka na sekundu
 		
 		[Header("Current Status")]
-		[SerializeField] private float currentFuel;
-		[SerializeField] private float currentPowerOutput;
 		[SerializeField] private bool isActive = false;
+		[SerializeField] private float currentPowerOutput;
 
 		private void Start() {
-			currentFuel = maxFuel;
 			PowerGridService grid = PowerGridService.instance;
 			if (grid != null) grid.RegisterReactor(this);
 		}
 
 		private void Update() {
-			if (isActive && currentFuel > 0) {
+			// Reaktor spotřebovává palivo pouze pokud je aktivní a hra není pozastavená
+			if (isActive && !GameStateService.instance.isGamePaused) {
 				ConsumeFuel();
 				CalculatePower();
 			} else {
-				isActive = false;
+				isActive = false; // Reaktor se automaticky vypne, když dojde palivo nebo je hra pozastavená
 				currentPowerOutput = 0;
 			}
 		}
 
 		private void ConsumeFuel() {
-			currentFuel -= fuelConsumptionRate * Time.deltaTime;
-			if (currentFuel < 0) currentFuel = 0;
+			if (GameStateService.instance != null) {
+				float fuelToConsume = fuelConsumptionRate * Time.deltaTime;
+				// Gemini: Spotřebováváme palivo z globálního zdroje.
+				GameStateService.instance.fuelLevel -= fuelToConsume;
+				if (GameStateService.instance.fuelLevel < 0) {
+					GameStateService.instance.fuelLevel = 0;
+					isActive = false; // Reaktor se vypne, když dojde palivo
+					Debug.Log("Palivo došlo!");
+				}
+			}
 		}
 
 		private void CalculatePower() {
@@ -41,12 +47,16 @@ namespace SubmarineJourney.Systems {
 		}
 
 		public void AddFuel(float aAmount) {
-			currentFuel += aAmount;
-			if (currentFuel > maxFuel) currentFuel = maxFuel;
+			if (GameStateService.instance != null) {
+				GameStateService.instance.fuelLevel += aAmount;
+				if (GameStateService.instance.fuelLevel > GameStateService.instance.maxFuel) { // Předpokládáme maxFuel v GameStateService
+					GameStateService.instance.fuelLevel = GameStateService.instance.maxFuel;
+				}
+			}
 		}
 
 		public void Interact() {
-			if (currentFuel > 0) {
+			if (GameStateService.instance.fuelLevel > 0) {
 				isActive = !isActive;
 				Debug.Log($"Reaktor je nyní {(isActive ? "ZAPNUTÝ" : "VYPNUTÝ")}");
 			} else {
@@ -55,7 +65,7 @@ namespace SubmarineJourney.Systems {
 		}
 
 		public string GetInteractText() {
-			if (currentFuel <= 0) return "Bez paliva";
+			if (GameStateService.instance.fuelLevel <= 0) return "Bez paliva";
 			return isActive ? "Vypnout reaktor" : "Zapnout reaktor";
 		}
 

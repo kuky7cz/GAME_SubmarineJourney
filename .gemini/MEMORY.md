@@ -7,9 +7,10 @@ Zde se sleduje aktuální stav projektu, implementované moduly a seznam úkolů
 - Klíčové služby: `GameStateService`, `PowerGridService`, `HUDService`.
 - `CharacterHealth` také funguje jako Singleton.
 - `HullSection` a `SeaCreature` jsou běžné MonoBehaviour komponenty.
+- Nástroj `GeminiBridge` (editorový skript pro automatizaci scény) odstraněn dle požadavku. Preferujeme self-inicializaci přes `[GlobalInit]` atribut.
+- Poškození `HullSection` nyní ovlivňuje globální integritu ponorky v `GameStateService`.
+- `Reactor` nyní spotřebovává palivo z `GameStateService.instance.fuelLevel`.
+- `HUDService` nyní zobrazuje palivo a hloubku z `GameStateService`.
 
 ## TODO
-- [ ] Propojit `HullSection.TakeDamage` s `GameStateService.instance.TotalSubmarineIntegrity`.
-- [ ] Implementovat logiku pro spotřebu paliva v `Reactor.cs` (odečítat z `GameStateService.instance.FuelLevel`).
-- [ ] Upravit `HUDService`, aby zobrazoval hloubku a palivo z `GameStateService`.
 - [ ] Vytvořit `SubmarineManager` pro globální správu všech sekcí trupu.
