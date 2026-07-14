@@ -163,4 +163,14 @@ aaaPoznamky.txt
 .gemini.gitignore/
 
 
+## Pro Testovací učely.
+## Originalni audio a obsah ze hry Barotruma.
+## TODO: Možnost načitat obsah ze hry těm co ji maji zakoupenou. Obsh hledat a načítat přimo z adresaře hry barotrauma. +Možnost vložit libovolný jiny vlastni.
+## - Nebo si sem nahrat audio ručne.
+## \steamapps\common\Barotrauma\Content\Map\Thalamus\Sounds
+## \steamapps\common\Barotrauma\Content\Sounds
+## \steamapps\common\Barotrauma\Content\Items
+/Assets/CC_Origo_Barotrauma/*
+/Assets/CC_Origo_Barotrauma/.Content/*
+
 
