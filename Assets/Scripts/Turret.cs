@@ -18,6 +18,8 @@ public class Turret : MonoBehaviour {
 	[Header("go CONNECTION ")]
 	public Transform trRotor;
 	public Transform trHead;
+	public Transform trProjectiele;
+	public Transform trGun;
 	public InputActionAsset inputAsset;
 	public AudioClip clickSound;
 
@@ -111,7 +113,12 @@ public class Turret : MonoBehaviour {
 	public void OnClickPerformed(InputAction.CallbackContext context) {
 		Debug.Log("Tlačítko myši bylo stisknuto.");
 		audioSource.PlayOneShot(clickSound);
-
+		// Fire Projectile
+		Transform projectile =  Instantiate<Transform>(trProjectiele);
+		projectile.position = trGun.position;
+		projectile.rotation = trGun.rotation;
+		//projectile.localScale = new Vector3(0.08f, 0.15f, 0.08f);
+		projectile.gameObject.SetActive(true);
 	}
 
 
